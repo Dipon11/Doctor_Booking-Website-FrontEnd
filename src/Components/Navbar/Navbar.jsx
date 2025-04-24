@@ -1,15 +1,15 @@
 import React from 'react';
 import image from '../../assets/logo.png'
 import { Link } from 'react-router';
+import { NavLink } from 'react-router-dom';
 const Navbar = () => {
   
-  const links =<>
-  <Link to='/'>  <li className='m-2'>Home</li></Link>
-<Link to ='/bookedList'>  <li className='m-2'>My-Bookings</li></Link>
-
-  <Link to='/blogs'> <li className='m-2'>Blogs</li></Link>
- 
-  <li className='m-2'>Contact US</li></>
+  const links = <>
+  <li className='m-2'><NavLink to='/' className={({ isActive }) => isActive ? "text-blue-500 font-bold underline" : ""}>Home</NavLink></li>
+  <li className='m-2'><NavLink to='/bookedList' className={({ isActive }) => isActive ? "text-blue-500 font-bold underline" : ""}>My-Bookings</NavLink></li>
+  <li className='m-2'><NavLink to='/blogs' className={({ isActive }) => isActive ? "text-blue-500 font-bold underline" : ""}>Blogs</NavLink></li>
+  <li className='m-2'><NavLink to='/contact' className={({ isActive }) => isActive ? "text-blue-500 font-bold underline" : ""}>Contact Us</NavLink></li>
+</>;
   
   
   return (

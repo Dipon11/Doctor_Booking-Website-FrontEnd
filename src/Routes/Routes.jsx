@@ -8,6 +8,7 @@ import Details from '../Pages/Details/Details';
 import ErrorPage from '../Components/ErrorPage/ErrorPage';
 import Blogs from '../Pages/Blogs/Blogs';
 import Booklist from '../Components/Booklist/Booklist';
+import ContactUs from '../Pages/ContactUS/Contactus';
 
 
 export const router = createBrowserRouter([
@@ -29,13 +30,18 @@ export const router = createBrowserRouter([
      },
      {
       path: '/blogs',
+      loader :()=>fetch('about.json'),
       Component:Blogs
      },
      {
       path: 'bookedList',
       loader :()=>fetch('/data.json'),
       Component:Booklist
-     }
+     },
+     {
+      path: '/contact',
+      Component:ContactUs,
+    },
     ]
 
   },

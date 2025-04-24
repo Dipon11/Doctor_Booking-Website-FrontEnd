@@ -1,22 +1,23 @@
-const getStoredBook = () => {
-  const storedAppointment = localStorage.getItem('booklist');
-  return storedAppointment ? JSON.parse(storedAppointment) : [];
-};
+// adtoodd.js
 
-const addToStoreDb = (id) => {
-  const storedAppointmentBook = getStoredBook();
-  if (storedAppointmentBook.includes(id)) {
-    alert('Appointment Already Booked');
-  } else {
-    storedAppointmentBook.push(id);
-    localStorage.setItem('booklist', JSON.stringify(storedAppointmentBook));
+const STORAGE_KEY = 'bookedAppointments';
+
+export const addToStoreDb = (id) => {
+  let storedBookings = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+
+  // Only store if it doesn't already exist
+  if (!storedBookings.includes(id)) {
+    storedBookings.push(id);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(storedBookings));
   }
 };
 
-const removeFromStoreDb = (id) => {
-  const storedAppointmentBook = getStoredBook();
-  const updated = storedAppointmentBook.filter(item => item !== id);
-  localStorage.setItem('booklist', JSON.stringify(updated));
+export const getStoredBook = () => {
+  return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
 };
 
-export { addToStoreDb, getStoredBook, removeFromStoreDb };
+export const removeFromStoreDb = (id) => {
+  let storedBookings = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+  const updatedBookings = storedBookings.filter(bookedId => parseInt(bookedId) !== parseInt(id));
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedBookings));
+};

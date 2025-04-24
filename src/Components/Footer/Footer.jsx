@@ -1,17 +1,18 @@
 import React from 'react';
 import image from '../../assets/logo.png'
+import { NavLink } from 'react-router';
 
 
 
 const Footer = () => {
   
-  const links =<>
-  <li className='m-4'>Home</li>
-  <li className='m-4'>My-Bookings</li>
-  <li className='m-4'>Blogs</li>
-  <li className='m-4'>Contact US</li></>
-  
-  
+  const links = <>
+  <li className='m-2'><NavLink to='/' className={({ isActive }) => isActive ? "text-blue-500 font-bold underline" : ""}>Home</NavLink></li>
+  <li className='m-2'><NavLink to='/bookedList' className={({ isActive }) => isActive ? "text-blue-500 font-bold underline" : ""}>My-Bookings</NavLink></li>
+  <li className='m-2'><NavLink to='/blogs' className={({ isActive }) => isActive ? "text-blue-500 font-bold underline" : ""}>Blogs</NavLink></li>
+  <li className='m-2'><NavLink to='/contact' className={({ isActive }) => isActive ? "text-blue-500 font-bold underline" : ""}>Contact Us</NavLink></li>
+</>;
+
   return (
     <div>
   <footer className="footer footer-horizontal footer-center bg-white text-gray-700 p-10">

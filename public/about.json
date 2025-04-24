@@ -1,0 +1,31 @@
+{
+  "pageTitle": "React Fundamentals: Key Concepts and Functions",
+  "pageDescription": "This page answers some of the most frequently asked questions about React, including useState, useEffect, custom hooks, controlled and uncontrolled components, and useFormStatus.",
+  "blogs": [
+    {
+      "title": "What is useState and how does it work in React?",
+      "slug": "what-is-usestate-and-how-does-it-work-in-react",
+      "content": "useState is a React Hook that allows you to add state to functional components. It returns an array containing two values: the current state and a function to update that state. It allows React to track changes to state over time. It works by triggering a re-render whenever the state changes, ensuring the UI reflects the latest data. For example:\n\nconst [count, setCount] = useState(0);\n\nIn this example, count holds the current state value, and setCount is the function used to update the value of count."
+    },
+    {
+      "title": "What is the purpose of useEffect in React?",
+      "slug": "what-is-the-purpose-of-useeffect-in-react",
+      "content": "useEffect is another React Hook that enables you to perform side effects in functional components. Side effects can include data fetching, subscriptions, manual DOM manipulations, or logging. It runs after the component renders and can be configured to run only when specific dependencies change. For example:\n\nuseEffect(() => {\n  // Perform side effect\n}, [dependencies]);\n\nThe second argument (dependencies) specifies when the effect should run, if it is an empty array, the effect runs only once when the component mounts."
+    },
+    {
+      "title": "What is a custom hook in React and when should you use one?",
+      "slug": "what-is-a-custom-hook-in-react-and-when-should-you-use-one",
+      "content": "A custom hook is a function in React that allows you to reuse stateful logic across multiple components. It can abstract complex logic from the component, making your code cleaner and more maintainable. Custom hooks are typically used when you need to share common functionality (like form handling, API calls, or event listeners) across multiple components. For example:\n\nfunction useCounter(initialValue) {\n  const [count, setCount] = useState(initialValue);\n  const increment = () => setCount(count + 1);\n  return { count, increment };\n}\n\nUse custom hooks when you find yourself repeating similar logic across components or when logic becomes complex enough to warrant separation from the component."
+    },
+    {
+      "title": "Difference between controlled and uncontrolled components? Which one is better?",
+      "slug": "difference-between-controlled-and-uncontrolled-components-which-one-is-better",
+      "content": "In React, a controlled component refers to an input element where React manages the value, typically using the useState hook. The component's state is the single source of truth, and updates are made through React's state management system.\n\nAn uncontrolled component, on the other hand, is an input element where React does not directly control the value. Instead, the DOM handles the state internally, and React only interacts with it when necessary (e.g., using refs).\n\nControlled components are generally preferred because they provide more predictable behavior and integrate better with React’s state management system. However, uncontrolled components may be more suitable when you want less overhead or need to manage simpler forms without the need for React state."
+    },
+    {
+      "title": "Tell us something about useFormStatus() in React.",
+      "slug": "useformstatus-in-react",
+      "content": "useFormStatus() is a hook provided by React (as part of React 18 or newer versions) to manage the form's submission status. It helps developers track whether a form is in a 'submitting' state, whether the submission is complete, or whether there are errors. It's useful for implementing a loading state during form submission or for handling errors in the UI.\n\nFor example, you might use it like this:\n\nconst { isSubmitting, submitError, formStatus } = useFormStatus();\n\nHere, 'isSubmitting' indicates whether the form is being submitted, 'submitError' stores any error during submission, and 'formStatus' gives the overall status of the form. This hook simplifies form handling, especially in complex forms with various validation and error states."
+    }
+  ]
+}
